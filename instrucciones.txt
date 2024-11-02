@@ -1,0 +1,34 @@
+//Despliegue de la blockchan
+
+-Tener instalado y abierto ganache
+
+-Crear un nuevo workspace (NO USAR QUICKSTART)
+
+-Tener instalado Truffle en la pc
+	desde la consola: "npm install -g truffle" (este comando los instala globalmente)
+
+-Configurar el archivo "truffle-config.js"
+	host: "127.0.0.1",     // Dirección de Ganache
+	port: 7545,            // Asegúrate de que este sea el puerto correcto
+	network_id: "5777",       // ID que aparce por arriba en ganache
+
+
+-Ir a la carpeta SistemaDeVotacion.Contrato y abrir la consola
+
+-Ejercutar "truffle compile" desde la consola para compilar
+
+-Ejercutar "truffle migrate --network development" desde la consola para desplegar en ganache
+
+-Buscar Build/contracts/VotingSystem.json, copiar el array de la propiedad "abi", la vamos a usar mas adelante
+
+	-- Listo blockchain deplegada --
+
+Configurar en Program.cs la direccion del contrato
+
+Configurar en home controller
+    string privateKey = "0xcec7cc30f8b55a931346783638a330ce9c3817eba264476b24c0a81cd9db9a55";
+
+
+Configura voting service
+	private const string abi = "Aca va el abi entre comillas, pedir ayuda a chatgpt para que lo meta acá"
+*Probar si funciona el abi que ya está en el código*

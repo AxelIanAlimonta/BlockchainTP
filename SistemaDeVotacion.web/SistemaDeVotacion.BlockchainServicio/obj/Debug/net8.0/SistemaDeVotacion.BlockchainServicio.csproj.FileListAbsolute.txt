@@ -1,0 +1,12 @@
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\bin\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.deps.json
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\bin\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.dll
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\bin\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.pdb
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.csproj.AssemblyReference.cache
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.AssemblyInfoInputs.cache
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.AssemblyInfo.cs
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.csproj.CoreCompileInputs.cache
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.dll
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\refint\SistemaDeVotacion.BlockchainServicio.dll
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\SistemaDeVotacion.BlockchainServicio.pdb
+C:\Users\chory\Desktop\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.BlockchainServicio\obj\Debug\net8.0\ref\SistemaDeVotacion.BlockchainServicio.dll

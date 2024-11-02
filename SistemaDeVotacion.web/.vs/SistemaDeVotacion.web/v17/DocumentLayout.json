@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\chory\\Desktop\\BlockchainTP\\SistemaDeVotacion.web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67DA629F-FB3D-4C4E-9C1E-DE904BC0FF6F}|SistemaDeVotacion.web\\SistemaDeVotacion.web.csproj|c:\\users\\chory\\desktop\\blockchaintp\\sistemadevotacion.web\\sistemadevotacion.web\\views\\home\\elegircandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DA629F-FB3D-4C4E-9C1E-DE904BC0FF6F}|SistemaDeVotacion.web\\SistemaDeVotacion.web.csproj|solutionrelative:sistemadevotacion.web\\views\\home\\elegircandidato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ElegirCandidato.cshtml",
+              "DocumentMoniker": "C:\\Users\\chory\\Desktop\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.web\\Views\\Home\\ElegirCandidato.cshtml",
+              "RelativeDocumentMoniker": "SistemaDeVotacion.web\\Views\\Home\\ElegirCandidato.cshtml",
+              "ToolTip": "C:\\Users\\chory\\Desktop\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.web\\Views\\Home\\ElegirCandidato.cshtml",
+              "RelativeToolTip": "SistemaDeVotacion.web\\Views\\Home\\ElegirCandidato.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAACGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-02T16:29:47.438Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
