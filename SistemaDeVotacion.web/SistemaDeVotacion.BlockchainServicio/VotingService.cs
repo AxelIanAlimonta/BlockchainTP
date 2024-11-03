@@ -19,111 +19,115 @@ public class VotingService
 
     // ABI y dirección del contrato
     private const string abi = @"[
-    {
-        ""inputs"": [],
-        ""stateMutability"": ""nonpayable"",
-        ""type"": ""constructor""
-    },
-    {
-        ""inputs"": [
-            {
-                ""internalType"": ""uint256"",
-                ""name"": ""candidateId"",
-                ""type"": ""uint256""
-            }
-        ],
-        ""name"": ""vote"",
-        ""outputs"": [],
-        ""stateMutability"": ""nonpayable"",
-        ""type"": ""function""
-    },
-    {
-        ""inputs"": [
-            {
-                ""internalType"": ""uint256"",
-                ""name"": """",
-                ""type"": ""uint256""
-            }
-        ],
-        ""name"": ""candidates"",
-        ""outputs"": [
-            {
-                ""internalType"": ""string"",
-                ""name"": ""name"",
-                ""type"": ""string""
-            },
-            {
-                ""internalType"": ""uint256"",
-                ""name"": ""voteCount"",
-                ""type"": ""uint256""
-            }
-        ],
-        ""stateMutability"": ""view"",
-        ""type"": ""function""
-    },
-    {
-        ""inputs"": [
-            {
-                ""internalType"": ""uint256"",
-                ""name"": ""candidateId"",
-                ""type"": ""uint256""
-            }
-        ],
-        ""name"": ""getCandidateName"",
-        ""outputs"": [
-            {
-                ""internalType"": ""string"",
-                ""name"": """",
-                ""type"": ""string""
-            }
-        ],
-        ""stateMutability"": ""view"",
-        ""type"": ""function""
-    },
-    {
-        ""inputs"": [
-            {
-                ""internalType"": ""uint256"",
-                ""name"": ""candidateId"",
-                ""type"": ""uint256""
-            }
-        ],
-        ""name"": ""getCandidateVoteCount"",
-        ""outputs"": [
-            {
-                ""internalType"": ""uint256"",
-                ""name"": """",
-                ""type"": ""uint256""
-            }
-        ],
-        ""stateMutability"": ""view"",
-        ""type"": ""function""
-    },
-    {
-        ""inputs"": [
-            {
-                ""internalType"": ""address"",
-                ""name"": """",
-                ""type"": ""address""
-            }
-        ],
-        ""name"": ""voters"",
-        ""outputs"": [
-            {
-                ""internalType"": ""bool"",
-                ""name"": ""hasVoted"",
-                ""type"": ""bool""
-            },
-            {
-                ""internalType"": ""uint256"",
-                ""name"": ""candidateVoted"",
-                ""type"": ""uint256""
-            }
-        ],
-        ""stateMutability"": ""view"",
-        ""type"": ""function""
-    }
-]";
+        {
+            ""inputs"": [],
+            ""stateMutability"": ""nonpayable"",
+            ""type"": ""constructor""
+        },
+        {
+            ""inputs"": [
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": """",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""name"": ""candidates"",
+            ""outputs"": [
+                {
+                    ""internalType"": ""string"",
+                    ""name"": ""name"",
+                    ""type"": ""string""
+                },
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": ""voteCount"",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""stateMutability"": ""view"",
+            ""type"": ""function"",
+            ""constant"": true
+        },
+        {
+            ""inputs"": [
+                {
+                    ""internalType"": ""address"",
+                    ""name"": """",
+                    ""type"": ""address""
+                }
+            ],
+            ""name"": ""voters"",
+            ""outputs"": [
+                {
+                    ""internalType"": ""bool"",
+                    ""name"": ""hasVoted"",
+                    ""type"": ""bool""
+                },
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": ""candidateVoted"",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""stateMutability"": ""view"",
+            ""type"": ""function"",
+            ""constant"": true
+        },
+        {
+            ""inputs"": [
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": ""candidateId"",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""name"": ""vote"",
+            ""outputs"": [],
+            ""stateMutability"": ""nonpayable"",
+            ""type"": ""function""
+        },
+        {
+            ""inputs"": [
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": ""candidateId"",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""name"": ""getCandidateVoteCount"",
+            ""outputs"": [
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": """",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""stateMutability"": ""view"",
+            ""type"": ""function"",
+            ""constant"": true
+        },
+        {
+            ""inputs"": [
+                {
+                    ""internalType"": ""uint256"",
+                    ""name"": ""candidateId"",
+                    ""type"": ""uint256""
+                }
+            ],
+            ""name"": ""getCandidateName"",
+            ""outputs"": [
+                {
+                    ""internalType"": ""string"",
+                    ""name"": """",
+                    ""type"": ""string""
+                }
+            ],
+            ""stateMutability"": ""view"",
+            ""type"": ""function"",
+            ""constant"": true
+        }
+    ]";
 
     public async Task VoteAsync(uint candidateId, string accountPrivateKey)
     {
