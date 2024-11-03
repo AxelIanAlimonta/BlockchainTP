@@ -4,8 +4,24 @@
 
 <h2>Bienvenido al Sistema de Votación</h2>
 
-<div class="text-center">
-    <a href="@Url.Action("ListaDeCandidatos")" class="btn btn-primary btn-lg">Ver Candidatos</a>
-    <a href="@Url.Action("ElegirCandidato")" class="btn btn-success btn-lg">Votar</a>
-    <a href="@Url.Action("Transaccion")" class="btn btn-success btn-lg">Ver transacciones</a>
-</div>
+@if (ViewBag.userWithWallet.WalletAddress != null)
+{
+    <div class="text-center">
+        <a href="@Url.Action("ListaDeCandidatos")" class="btn btn-primary btn-lg">Ver Candidatos</a>
+        <a href="@Url.Action("ElegirCandidato")" class="btn btn-success btn-lg">Votar</a>
+        <a href="@Url.Action("Transaccion")" class="btn btn-success btn-lg">Ver transacciones</a>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h3>No tienes una wallet asociada. Por favor, ingresa tu dirección de wallet:</h3>
+        <form asp-action="AddWallet" method="post">
+            <div class="form-group">
+                <label for="walletAddress">Dirección de Wallet</label>
+                <input type="text" class="form-control" id="walletAddress" name="walletAddress" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Wallet</button>
+        </form>
+    </div>
+}

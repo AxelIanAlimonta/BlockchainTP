@@ -1,135 +1,131 @@
-﻿using System.Threading.Tasks;
-using Nethereum.Web3;
-using Nethereum.Contracts;
+﻿using Nethereum.Web3;
 using Nethereum.Web3.Accounts;
-using Nethereum.Hex.HexTypes; // Asegúrate de tener este using
+using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;
-
-
 
 public class VotingService
 {
     private readonly Web3 _web3;
     private readonly string _contractAddress;
 
-    public VotingService(string rpcUrl, string contractAddress)
+    public VotingService()
     {
         // Crear conexión con Ganache
-        _web3 = new Web3(rpcUrl);
-        _contractAddress = contractAddress;
+        _web3 = new Web3(Environment.GetEnvironmentVariable("GANACHE_URL"));
+        _contractAddress = Environment.GetEnvironmentVariable("CONTRACT_ADDRESS");
     }
 
     // ABI y dirección del contrato
     private const string abi = @"[
     {
-      'inputs': [],
-      'stateMutability': 'nonpayable',
-      'type': 'constructor'
+      ""inputs"": [],
+      ""stateMutability"": ""nonpayable"",
+      ""type"": ""constructor""
     },
     {
-      'inputs': [
+      ""inputs"": [
         {
-          'internalType': 'uint256',
-          'name': '',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": """",
+          ""type"": ""uint256""
         }
       ],
-      'name': 'candidates',
-      'outputs': [
+      ""name"": ""candidates"",
+      ""outputs"": [
         {
-          'internalType': 'string',
-          'name': 'name',
-          'type': 'string'
+          ""internalType"": ""string"",
+          ""name"": ""name"",
+          ""type"": ""string""
         },
         {
-          'internalType': 'uint256',
-          'name': 'voteCount',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": ""voteCount"",
+          ""type"": ""uint256""
         }
       ],
-      'stateMutability': 'view',
-      'type': 'function',
-      'constant': true
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
     },
     {
-      'inputs': [
+      ""inputs"": [
         {
-          'internalType': 'address',
-          'name': '',
-          'type': 'address'
+          ""internalType"": ""address"",
+          ""name"": """",
+          ""type"": ""address""
         }
       ],
-      'name': 'voters',
-      'outputs': [
+      ""name"": ""voters"",
+      ""outputs"": [
         {
-          'internalType': 'bool',
-          'name': 'hasVoted',
-          'type': 'bool'
+          ""internalType"": ""bool"",
+          ""name"": ""hasVoted"",
+          ""type"": ""bool""
         },
         {
-          'internalType': 'uint256',
-          'name': 'candidateVoted',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": ""candidateVoted"",
+          ""type"": ""uint256""
         }
       ],
-      'stateMutability': 'view',
-      'type': 'function',
-      'constant': true
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
     },
     {
-      'inputs': [
+      ""inputs"": [
         {
-          'internalType': 'uint256',
-          'name': 'candidateId',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": ""candidateId"",
+          ""type"": ""uint256""
         }
       ],
-      'name': 'vote',
-      'outputs': [],
-      'stateMutability': 'nonpayable',
-      'type': 'function'
+      ""name"": ""vote"",
+      ""outputs"": [],
+      ""stateMutability"": ""nonpayable"",
+      ""type"": ""function""
     },
     {
-      'inputs': [
+      ""inputs"": [
         {
-          'internalType': 'uint256',
-          'name': 'candidateId',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": ""candidateId"",
+          ""type"": ""uint256""
         }
       ],
-      'name': 'getCandidateVoteCount',
-      'outputs': [
+      ""name"": ""getCandidateVoteCount"",
+      ""outputs"": [
         {
-          'internalType': 'uint256',
-          'name': '',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": """",
+          ""type"": ""uint256""
         }
       ],
-      'stateMutability': 'view',
-      'type': 'function',
-      'constant': true
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
     },
     {
-      'inputs': [
+      ""inputs"": [
         {
-          'internalType': 'uint256',
-          'name': 'candidateId',
-          'type': 'uint256'
+          ""internalType"": ""uint256"",
+          ""name"": ""candidateId"",
+          ""type"": ""uint256""
         }
       ],
-      'name': 'getCandidateName',
-      'outputs': [
+      ""name"": ""getCandidateName"",
+      ""outputs"": [
         {
-          'internalType': 'string',
-          'name': '',
-          'type': 'string'
+          ""internalType"": ""string"",
+          ""name"": """",
+          ""type"": ""string""
         }
       ],
-      'stateMutability': 'view',
-      'type': 'function',
-      'constant': true
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
     }
-]";
+  ]";
 
 
     public async Task VoteAsync(uint candidateId, string accountPrivateKey)

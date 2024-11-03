@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SistemaDeVotacion.BlockchainServicio;
+using SistemaDeVotacion.Domain;
+using SistemaDeVotacion.Domain.Dto;
 using SistemaDeVotacion.web.Models;
 
 namespace SistemaDeVotacion.web.Controllers;
@@ -9,11 +12,13 @@ public class AccountController : Controller
 {
     private readonly UserManager<IdentityUser> _userManager;
     private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserService _userService;
 
-    public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+    public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, UserService userService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _userService = userService;
     }
 
     [HttpGet]
@@ -25,16 +30,18 @@ public class AccountController : Controller
         if (!ModelState.IsValid)
             return View(model);
 
-        var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-        var result = await _userManager.CreateAsync(user, model.Password);
+       var dto = new RegisterUserDto { Email = model.Email, Password = model.Password };
 
-        if (result.Succeeded)
+        var result = await _userService.RegisterUserAsync(dto);
+
+        if (result.responseIdentity.Succeeded)
         {
-            await _signInManager.SignInAsync(user, isPersistent: false);
+            
+            await _signInManager.SignInAsync(result.userIdentity, isPersistent: false);
             return RedirectToAction("Index", "Home");
         }
 
-        foreach (var error in result.Errors)
+        foreach (var error in result.responseIdentity.Errors)
             ModelState.AddModelError("Password", error.Description);
 
         return View(model);

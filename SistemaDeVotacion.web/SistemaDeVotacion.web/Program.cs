@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SistemaDeVotacion.web.Context;
+using SistemaDeVotacion.BlockchainServicio;
+using SistemaDeVotacion.Domain.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,12 +14,8 @@ DotNetEnv.Env.Load();
 builder.Configuration.AddEnvironmentVariables();
 
 // Configurar VotingService para la inyección de dependencias
-builder.Services.AddScoped<VotingService>(provider =>
-{
-    string rpcUrl = "http://127.0.0.1:7545"; // URL de Ganache
-    string contractAddress = "0x50deAC9220BB4ecBb450E6B424e7c11559F10621"; // Dirección de tu contrato
-    return new VotingService(rpcUrl, contractAddress);
-});
+builder.Services.AddScoped<VotingService>();
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddDbContext<BlockchainDbContext>(opt => opt.UseSqlServer("name=DefaultConnection"));
 
