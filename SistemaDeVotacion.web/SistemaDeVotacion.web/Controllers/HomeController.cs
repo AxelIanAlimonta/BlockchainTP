@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SistemaDeVotacion.BlockchainServicio;
 using SistemaDeVotacion.web.Models;
 
 namespace SistemaDeVotacion.web.Controllers;
@@ -10,22 +11,50 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly VotingService _votingService;
+    private readonly UserService _userService;
     private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
 
-    public HomeController(VotingService votingService, ILogger<HomeController> logger, SignInManager<IdentityUser> signInManager)
+    public HomeController(VotingService votingService, ILogger<HomeController> logger, SignInManager<IdentityUser> signInManager, UserService userService, UserManager<IdentityUser> userManager)
     {
         _votingService = votingService;
         _logger = logger;
         _signInManager = signInManager;
+        _userService = userService;
+        _userManager = userManager;
     }
-    
 
-    public IActionResult Index()
+
+    public async Task<IActionResult> Index()
     {
+        var userWithWallet = await _userService.GetUserWithWalletAsync(User);
+
+        // Pasar la información al ViewBag
+        ViewBag.userWithWallet = userWithWallet;
         return View();
     }
 
-    
+    [HttpPost]
+    public async Task<IActionResult> AddWallet(string walletAddress)
+    {
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+        var result = await _userService.AddWalletAsync(user, walletAddress);
+
+        if (result)
+        {
+            // Wallet añadida correctamente
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            // Manejo de errores si no se pudo añadir la wallet
+            ModelState.AddModelError("", "No se pudo añadir la dirección de la wallet.");
+            return View("Index");
+        }
+    }
+
+
+
 
     public async Task<IActionResult> ListaDeCandidatos()
     {
@@ -72,13 +101,12 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Votar(uint candidateId)
     {
-        string privateKey = "0xbfefca493b977c6348a9e3bdfd3ea9b1496ae6ef5ef6e1312c214b879e68d163";
-
         try
         {
+            var userWithWallet = await _userService.GetUserWithWalletAsync(User);
 
             // Llamar al servicio de votaci�n para registrar el voto
-            await _votingService.VoteAsync(candidateId, privateKey);
+            await _votingService.VoteAsync(candidateId, userWithWallet.WalletAddress);
             return RedirectToAction("MensajeDelSistema", new { msj = "Voto registrado exitosamente." });
         }
         catch (Exception ex)
@@ -100,7 +128,6 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
 
     [HttpGet]
     public async Task<IActionResult> Transaccion(int? id)
@@ -140,5 +167,5 @@ public class HomeController : Controller
         }
         return View(ListT);
     }
-    
+
 }

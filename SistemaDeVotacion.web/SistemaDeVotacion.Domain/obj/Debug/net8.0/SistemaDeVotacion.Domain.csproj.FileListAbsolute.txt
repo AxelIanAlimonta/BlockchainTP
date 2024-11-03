@@ -1,0 +1,15 @@
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.deps.json
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.dll
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.pdb
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.csproj.AssemblyReference.cache
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.AssemblyInfoInputs.cache
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.AssemblyInfo.cs
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.csproj.CoreCompileInputs.cache
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.sourcelink.json
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.dll
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\refint\SistemaDeVotacion.Domain.dll
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.pdb
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\ref\SistemaDeVotacion.Domain.dll
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.runtimeconfig.json
+C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.genruntimeconfig.cache

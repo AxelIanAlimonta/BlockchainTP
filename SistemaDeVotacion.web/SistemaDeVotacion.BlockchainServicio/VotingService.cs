@@ -1,22 +1,18 @@
-﻿using System.Threading.Tasks;
-using Nethereum.Web3;
-using Nethereum.Contracts;
+﻿using Nethereum.Web3;
 using Nethereum.Web3.Accounts;
-using Nethereum.Hex.HexTypes; // Asegúrate de tener este using
+using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;
-
-
 
 public class VotingService
 {
     private readonly Web3 _web3;
     private readonly string _contractAddress;
 
-    public VotingService(string rpcUrl, string contractAddress)
+    public VotingService()
     {
         // Crear conexión con Ganache
-        _web3 = new Web3(rpcUrl);
-        _contractAddress = contractAddress;
+        _web3 = new Web3(Environment.GetEnvironmentVariable("GANACHE_URL"));
+        _contractAddress = Environment.GetEnvironmentVariable("CONTRACT_ADDRESS");
     }
 
     // ABI y dirección del contrato
