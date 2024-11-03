@@ -1,11 +1,13 @@
-﻿namespace SistemaDeVotacion.web.Models
+﻿using System.Numerics;
+
+namespace SistemaDeVotacion.web.Models;
+
+public class BlockDataModelView
 {
-    public class BlockDataModelView
-    {
-        public ulong BlockNumber { get; set; }
-        public string Hash { get; set; }
-        public string Miner { get; set; }
-        public ulong Timestamp { get; set; }
-        public List<TransactionModelView> Transactions { get; set; }
-    }
+    public int BlockNumber { get; set; }
+    public string Hash { get; set; }
+    public string Miner { get; set; }
+    public BigInteger Timestamp { get; set; }
+
+    //public TransactionModelView Transaction { get; set; }
 }

@@ -1,0 +1,20 @@
+﻿@model List<SistemaDeVotacion.web.Models.TransactionModelView>
+
+@{
+    var count = 1; // Inicializa el contador
+}
+<ul>
+    @foreach (var tx in Model)
+    {
+        var txType = tx.GetType();
+        <div class="card mt-4">
+            <h4 class="card-header">Transaccion @count</h4>
+            <div class="card-body">
+                <h5 class="card-title">TxHash: @tx.TxHash</h5>
+                <h5 class="card-title">From: @tx.From</h5>
+                <h5 class="card-text">To: @tx.To</h5>
+            </div>
+        </div>
+        count++;
+    }
+</ul>

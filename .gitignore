@@ -1,7 +1,7 @@
-
-/SistemaDeVotacion.web/SistemaDeVotacion.web/obj
-/SistemaDeVotacion.web/SistemaDeVotacion.web/obj
-SistemaDeVotacion.web/SistemaDeVotacion.web/obj/Debug/net8.0/SistemaDeVotacion.web.csproj.FileListAbsolute.txt
-/SistemaDeVotacion.web/SistemaDeVotacion.web/obj
-/SistemaDeVotacion.web/.vs
-/SistemaDeVotacion.web/SistemaDeVotacion.BlockchainServicio/bin
+SistemaDeVotacion.Contrato/build
+SistemaDeVotacion.web/.vs
+SistemaDeVotacion.web/SistemaDeVotacion.BlockchainServicio/bin
+SistemaDeVotacion.web/SistemaDeVotacion.BlockchainServicio/obj
+SistemaDeVotacion.web/SistemaDeVotacion.web/bin
+SistemaDeVotacion.web/SistemaDeVotacion.web/obj
+SistemaDeVotacion.web/SistemaDeVotacion.web/.env

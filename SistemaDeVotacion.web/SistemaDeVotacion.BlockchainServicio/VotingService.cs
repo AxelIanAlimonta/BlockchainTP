@@ -212,8 +212,4 @@ public class VotingService
 
         return blocks;
     }
-
-
-
-
 }
