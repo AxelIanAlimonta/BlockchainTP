@@ -71,7 +71,7 @@ namespace SistemaDeVotacion.web.Controllers
 
         public async Task<IActionResult> Votar(uint candidateId)
         {
-            string privateKey = "0x894e43aaa80b3b0a9e6f701feb836b0a6b31da8adc8c63d83e97d6c333aefa95";
+            string privateKey = "0xa317b32d3ca21d8a6f2c036605def8f5509e075b378bab255a4aaa0becca8748";
 
             try
             {
@@ -99,5 +99,25 @@ namespace SistemaDeVotacion.web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public async Task<IActionResult> Test()
+        {
+            var blockData = await _votingService.Test();
+
+            if (blockData == null)
+            {
+                return NotFound(); // O manejar el error de otra forma
+            }
+
+            // Acceder al primer bloque y sus transacciones
+            var firstBlock = blockData.Skip(5).First();
+            var transactions = firstBlock.GetType().GetProperty("Transactions").GetValue(firstBlock, null) as IEnumerable<object>;
+
+
+            ViewBag.HashCode = firstBlock.GetType().GetProperty("Hash").GetValue(firstBlock, null);
+            ViewBag.Transactions = transactions;
+            return View();
+        }
+
     }
 }

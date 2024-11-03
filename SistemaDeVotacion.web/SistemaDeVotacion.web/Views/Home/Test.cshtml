@@ -1,0 +1,16 @@
+﻿
+    <h2>Datos del Bloque</h2>
+    <p><strong>Hash del Bloque:</strong> @ViewBag.HashCode</p>
+    <h3>Transacciones</h3>
+    <ul>
+        @foreach (var tx in (IEnumerable<object>)ViewBag.Transactions)
+        {
+            var txType = tx.GetType();
+            <li>
+                <strong>TxHash:</strong> @txType.GetProperty("TxHash").GetValue(tx, null)<br />
+                <strong>From:</strong> @txType.GetProperty("From").GetValue(tx, null)<br />
+                <strong>To:</strong> @txType.GetProperty("To").GetValue(tx, null)<br />
+                <strong>Value:</strong> @txType.GetProperty("Value").GetValue(tx, null)
+            </li>
+        }
+    </ul>

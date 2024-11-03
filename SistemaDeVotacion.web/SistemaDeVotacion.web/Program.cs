@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<VotingService>(provider =>
 {
     string rpcUrl = "http://127.0.0.1:7545"; // URL de Ganache
-    string contractAddress = "0x79F67915818Ce5Ca7a7134fC86c348c720EF50Ef"; // Dirección de tu contrato
+    string contractAddress = "0x50deAC9220BB4ecBb450E6B424e7c11559F10621"; // Dirección de tu contrato
     return new VotingService(rpcUrl, contractAddress);
 });
 
