@@ -5,6 +5,8 @@ using Nethereum.Web3.Accounts;
 using Nethereum.Hex.HexTypes; // Asegúrate de tener este using
 using Nethereum.RPC.Eth.DTOs;
 
+
+
 public class VotingService
 {
     private readonly Web3 _web3;
@@ -19,115 +21,116 @@ public class VotingService
 
     // ABI y dirección del contrato
     private const string abi = @"[
+    {
+      'inputs': [],
+      'stateMutability': 'nonpayable',
+      'type': 'constructor'
+    },
+    {
+      'inputs': [
         {
-            ""inputs"": [],
-            ""stateMutability"": ""nonpayable"",
-            ""type"": ""constructor""
-        },
-        {
-            ""inputs"": [
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": """",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""name"": ""candidates"",
-            ""outputs"": [
-                {
-                    ""internalType"": ""string"",
-                    ""name"": ""name"",
-                    ""type"": ""string""
-                },
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": ""voteCount"",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""stateMutability"": ""view"",
-            ""type"": ""function"",
-            ""constant"": true
-        },
-        {
-            ""inputs"": [
-                {
-                    ""internalType"": ""address"",
-                    ""name"": """",
-                    ""type"": ""address""
-                }
-            ],
-            ""name"": ""voters"",
-            ""outputs"": [
-                {
-                    ""internalType"": ""bool"",
-                    ""name"": ""hasVoted"",
-                    ""type"": ""bool""
-                },
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": ""candidateVoted"",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""stateMutability"": ""view"",
-            ""type"": ""function"",
-            ""constant"": true
-        },
-        {
-            ""inputs"": [
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": ""candidateId"",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""name"": ""vote"",
-            ""outputs"": [],
-            ""stateMutability"": ""nonpayable"",
-            ""type"": ""function""
-        },
-        {
-            ""inputs"": [
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": ""candidateId"",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""name"": ""getCandidateVoteCount"",
-            ""outputs"": [
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": """",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""stateMutability"": ""view"",
-            ""type"": ""function"",
-            ""constant"": true
-        },
-        {
-            ""inputs"": [
-                {
-                    ""internalType"": ""uint256"",
-                    ""name"": ""candidateId"",
-                    ""type"": ""uint256""
-                }
-            ],
-            ""name"": ""getCandidateName"",
-            ""outputs"": [
-                {
-                    ""internalType"": ""string"",
-                    ""name"": """",
-                    ""type"": ""string""
-                }
-            ],
-            ""stateMutability"": ""view"",
-            ""type"": ""function"",
-            ""constant"": true
+          'internalType': 'uint256',
+          'name': '',
+          'type': 'uint256'
         }
-    ]";
+      ],
+      'name': 'candidates',
+      'outputs': [
+        {
+          'internalType': 'string',
+          'name': 'name',
+          'type': 'string'
+        },
+        {
+          'internalType': 'uint256',
+          'name': 'voteCount',
+          'type': 'uint256'
+        }
+      ],
+      'stateMutability': 'view',
+      'type': 'function',
+      'constant': true
+    },
+    {
+      'inputs': [
+        {
+          'internalType': 'address',
+          'name': '',
+          'type': 'address'
+        }
+      ],
+      'name': 'voters',
+      'outputs': [
+        {
+          'internalType': 'bool',
+          'name': 'hasVoted',
+          'type': 'bool'
+        },
+        {
+          'internalType': 'uint256',
+          'name': 'candidateVoted',
+          'type': 'uint256'
+        }
+      ],
+      'stateMutability': 'view',
+      'type': 'function',
+      'constant': true
+    },
+    {
+      'inputs': [
+        {
+          'internalType': 'uint256',
+          'name': 'candidateId',
+          'type': 'uint256'
+        }
+      ],
+      'name': 'vote',
+      'outputs': [],
+      'stateMutability': 'nonpayable',
+      'type': 'function'
+    },
+    {
+      'inputs': [
+        {
+          'internalType': 'uint256',
+          'name': 'candidateId',
+          'type': 'uint256'
+        }
+      ],
+      'name': 'getCandidateVoteCount',
+      'outputs': [
+        {
+          'internalType': 'uint256',
+          'name': '',
+          'type': 'uint256'
+        }
+      ],
+      'stateMutability': 'view',
+      'type': 'function',
+      'constant': true
+    },
+    {
+      'inputs': [
+        {
+          'internalType': 'uint256',
+          'name': 'candidateId',
+          'type': 'uint256'
+        }
+      ],
+      'name': 'getCandidateName',
+      'outputs': [
+        {
+          'internalType': 'string',
+          'name': '',
+          'type': 'string'
+        }
+      ],
+      'stateMutability': 'view',
+      'type': 'function',
+      'constant': true
+    }
+]";
+
 
     public async Task VoteAsync(uint candidateId, string accountPrivateKey)
     {
@@ -179,69 +182,34 @@ public class VotingService
 
         return await getCandidateVoteCountFunction.CallAsync<uint>(candidateId);
     }
+
+    public async Task<List<dynamic>> Test()
+    {
+        var blockNumber = await _web3.Eth.Blocks.GetBlockNumber.SendRequestAsync();
+        var blocks = new List<dynamic>();
+
+        for (ulong i = 0; i <= blockNumber.Value; i++)
+        {
+            var block = await _web3.Eth.Blocks.GetBlockWithTransactionsByNumber.SendRequestAsync(new BlockParameter(i));
+
+            var blockInfo = new
+            {
+                BlockNumber = block.Number.Value,
+                Hash = block.BlockHash,
+                Miner = block.Miner,
+                Timestamp = block.Timestamp.Value,
+                Transactions = block.Transactions.Select(tx => new
+                {
+                    TxHash = tx.TransactionHash,
+                    From = tx.From,
+                    To = tx.To,
+                    Value = tx.Value.Value
+                }).ToList()
+            };
+
+            blocks.Add(blockInfo);
+        }
+
+        return blocks;
+    }
 }
-
-
-
-//public async Task VoteAsync(string accountAddress, string privateKey, uint candidateId)
-//{
-//    // Crear cuenta del votante
-//    var account = new Account(privateKey);
-
-//    // Crear conexión con Ganache usando la cuenta
-//    var web3 = new Web3(account, _web3.Client);
-
-//    // Referencia al contrato
-//    var contract = web3.Eth.GetContract(abi, _contractAddress);
-
-//    // Llamar al método de votación
-//    var voteFunction = contract.GetFunction("vote");
-
-//    // Establecer el gas y gasPrice (ajusta estos valores según sea necesario)
-//    var gas = new Hexuint(6000000); // Ajusta la cantidad de gas que estás dispuesto a usar
-//    var gasPrice = new Hexuint(20000000000); // Gas price en Wei (20 Gwei)
-
-//    try
-//    {
-//        // Llamar a la función vote y esperar la transacción
-//        var transactionHash = await voteFunction.SendTransactionAsync(accountAddress, gas, gasPrice, candidateId);
-
-//        // Esperar la confirmación de la transacción
-//        var receipt = await web3.Eth.Transactions.GetTransactionReceipt.SendRequestAsync(transactionHash);
-
-//        Console.WriteLine($"Transacción completada. Hash: {transactionHash}");
-//    }
-//    catch (Exception ex)
-//    {
-//        Console.WriteLine($"Ocurrió un error al registrar el voto: {ex.Message}");
-//    }
-//}
-
-
-//// Obtener el conteo de votos de un candidato
-//public async Task<uint> GetCandidateVoteCountAsync(uint candidateId)
-//{
-//    // Referencia al contrato
-//    var contract = _web3.Eth.GetContract(abi, _contractAddress);
-
-//    // Obtener la función para obtener el conteo de votos
-//    var voteCountFunction = contract.GetFunction("getCandidateVoteCount");
-
-//    // Llamar a la función del contrato y devolver el conteo de votos
-//    return await voteCountFunction.CallAsync<uint>(candidateId);
-//}
-
-//// Obtener el nombre de un candidato por su ID
-//public async Task<string> GetCandidateNameAsync(uint candidateId)
-//{
-//    // Referencia al contrato
-//    var contract = _web3.Eth.GetContract(abi, _contractAddress);
-
-//    // Obtener la función para obtener el nombre del candidato
-//    var getNameFunction = contract.GetFunction("getCandidateName");
-
-//    // Llamar a la función del contrato y devolver el nombre del candidato
-//    return await getNameFunction.CallAsync<string>(candidateId);
-//}
-
-

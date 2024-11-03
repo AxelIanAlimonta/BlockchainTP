@@ -77,13 +77,13 @@ public class HomeController : Controller
         try
         {
 
-            // Llamar al servicio de votación para registrar el voto
+            // Llamar al servicio de votaciï¿½n para registrar el voto
             await _votingService.VoteAsync(candidateId, privateKey);
             return RedirectToAction("MensajeDelSistema", new { msj = "Voto registrado exitosamente." });
         }
         catch (Exception ex)
         {
-            return RedirectToAction("MensajeDelSistema", new { msj = $"Ocurrió un error al registrar el voto: {ex.Message}" });
+            return RedirectToAction("MensajeDelSistema", new { msj = $"Ocurriï¿½ un error al registrar el voto: {ex.Message}" });
         }
     }
 
