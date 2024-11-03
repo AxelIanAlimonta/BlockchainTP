@@ -17,7 +17,7 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddScoped<VotingService>(provider =>
 {
     string rpcUrl = "http://127.0.0.1:7545"; // URL de Ganache
-    string contractAddress = "0x50deAC9220BB4ecBb450E6B424e7c11559F10621"; // Dirección de tu contrato
+    string contractAddress = "0x54195AEaFaFc349aa73199D28Be042966BeA6526"; // Dirección de tu contrato
     return new VotingService(rpcUrl, contractAddress);
 });
 

@@ -72,7 +72,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Votar(uint candidateId)
     {
-        string privateKey = "0x894e43aaa80b3b0a9e6f701feb836b0a6b31da8adc8c63d83e97d6c333aefa95";
+        string privateKey = "0xbfefca493b977c6348a9e3bdfd3ea9b1496ae6ef5ef6e1312c214b879e68d163";
 
         try
         {
@@ -100,4 +100,45 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
+    [HttpGet]
+    public async Task<IActionResult> Transaccion(int? id)
+    {
+        var blockData = await _votingService.Test();
+
+        if (blockData == null || blockData.Count < 2)
+        {
+            return NotFound(); // O manejar el error de otra forma
+        }
+
+        var contractAddress = Environment.GetEnvironmentVariable("CONTRACT_ADDRESS");
+
+        var bloques = blockData.ToList();
+        var ListT = new List<TransactionModelView>();
+
+        for (int i = 0; i < bloques.Count(); i++)
+        {
+            var blockIndividual = blockData.Skip(i).First();
+            var transactionsIn = blockIndividual.GetType().GetProperty("Transactions").GetValue(blockIndividual, null) as IEnumerable<object>;
+
+            foreach (var tx in (IEnumerable<object>)transactionsIn)
+            {
+                TransactionModelView transactionModelView = new TransactionModelView
+                {
+                    TxHash = (string)tx.GetType().GetProperty("TxHash").GetValue(tx, null),
+                    From = (string)tx.GetType().GetProperty("From").GetValue(tx, null),
+                    To = (string)tx.GetType().GetProperty("To").GetValue(tx, null),
+                };
+
+                if (transactionModelView.To != null && transactionModelView.To.Equals(contractAddress.ToLower()))
+                {
+                    ListT.Add(transactionModelView);
+                }
+            }
+
+        }
+        return View(ListT);
+    }
+    
 }
