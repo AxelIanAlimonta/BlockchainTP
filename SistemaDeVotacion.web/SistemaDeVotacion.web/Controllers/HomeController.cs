@@ -1,103 +1,103 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SistemaDeVotacion.web.Models;
 
-namespace SistemaDeVotacion.web.Controllers
+namespace SistemaDeVotacion.web.Controllers;
+[Authorize]
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly ILogger<HomeController> _logger;
+    private readonly VotingService _votingService;
+    private readonly SignInManager<IdentityUser> _signInManager;
+
+    public HomeController(VotingService votingService, ILogger<HomeController> logger, SignInManager<IdentityUser> signInManager)
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly VotingService _votingService;
+        _votingService = votingService;
+        _logger = logger;
+        _signInManager = signInManager;
+    }
+    
 
-        public HomeController(VotingService votingService, ILogger<HomeController> logger)
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    
+
+    public async Task<IActionResult> ListaDeCandidatos()
+    {
+        var candidates = new List<CandidateViewModel>();
+
+        const uint cantCandidatos = 3;
+
+        for (uint i = 0; i < cantCandidatos; i++)
         {
-            _votingService = votingService;
-            _logger = logger;
-        }
+            var name = await _votingService.GetCandidateNameAsync(i);
+            var voteCount = await _votingService.GetCandidateVoteCountAsync(i);
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-
-        public async Task<IActionResult> ListaDeCandidatos()
-        {
-            var candidates = new List<CandidateViewModel>();
-
-            const uint cantCandidatos = 3;
-
-            for (uint i = 0; i < cantCandidatos; i++)
+            candidates.Add(new CandidateViewModel
             {
-                var name = await _votingService.GetCandidateNameAsync(i);
-                var voteCount = await _votingService.GetCandidateVoteCountAsync(i);
-
-                candidates.Add(new CandidateViewModel
-                {
-                    Id = i,
-                    NombreCandidato = name,
-                    CantidadDeVotos = voteCount
-                });
-            }
-
-            return View(candidates);
+                Id = i,
+                NombreCandidato = name,
+                CantidadDeVotos = voteCount
+            });
         }
 
-        public async Task<IActionResult> ElegirCandidato()
-        {
-            var candidates = new List<CandidateViewModel>();
-            const uint cantCandidatos = 3;
+        return View(candidates);
+    }
 
-            for (uint i = 0; i < cantCandidatos; i++)
+    public async Task<IActionResult> ElegirCandidato()
+    {
+        var candidates = new List<CandidateViewModel>();
+        const uint cantCandidatos = 3;
+
+        for (uint i = 0; i < cantCandidatos; i++)
+        {
+            var name = await _votingService.GetCandidateNameAsync(i);
+            var voteCount = await _votingService.GetCandidateVoteCountAsync(i);
+
+            candidates.Add(new CandidateViewModel
             {
-                var name = await _votingService.GetCandidateNameAsync(i);
-                var voteCount = await _votingService.GetCandidateVoteCountAsync(i);
-
-                candidates.Add(new CandidateViewModel
-                {
-                    Id = i,
-                    NombreCandidato = name,
-                    CantidadDeVotos = voteCount
-                });
-            }
-
-            return View(candidates);
+                Id = i,
+                NombreCandidato = name,
+                CantidadDeVotos = voteCount
+            });
         }
 
-        //public ActionResult Votar(uint candidateId)
-        //{
-        //    return RedirectToAction("MensajeDelSistema", new { msj = $"{candidateId}" });
-        //}
+        return View(candidates);
+    }
 
-        public async Task<IActionResult> Votar(uint candidateId)
+    public async Task<IActionResult> Votar(uint candidateId)
+    {
+        string privateKey = "0x894e43aaa80b3b0a9e6f701feb836b0a6b31da8adc8c63d83e97d6c333aefa95";
+
+        try
         {
-            string privateKey = "0x894e43aaa80b3b0a9e6f701feb836b0a6b31da8adc8c63d83e97d6c333aefa95";
 
-            try
-            {
-
-                // Llamar al servicio de votación para registrar el voto
-                await _votingService.VoteAsync(candidateId, privateKey);
-                return RedirectToAction("MensajeDelSistema", new { msj = "Voto registrado exitosamente." });
-            }
-            catch (Exception ex)
-            {
-                return RedirectToAction("MensajeDelSistema", new { msj = $"Ocurrió un error al registrar el voto: {ex.Message}" });
-            }
+            // Llamar al servicio de votación para registrar el voto
+            await _votingService.VoteAsync(candidateId, privateKey);
+            return RedirectToAction("MensajeDelSistema", new { msj = "Voto registrado exitosamente." });
         }
-
-
-        public IActionResult MensajeDelSistema(string msj)
+        catch (Exception ex)
         {
-            ViewBag.Mensaje = msj;
-            return View();
+            return RedirectToAction("MensajeDelSistema", new { msj = $"Ocurrió un error al registrar el voto: {ex.Message}" });
         }
+    }
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    public IActionResult MensajeDelSistema(string msj)
+    {
+        ViewBag.Mensaje = msj;
+        return View();
+    }
+
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

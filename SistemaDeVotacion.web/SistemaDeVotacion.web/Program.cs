@@ -23,7 +23,15 @@ builder.Services.AddScoped<VotingService>(provider =>
 
 builder.Services.AddDbContext<BlockchainDbContext>(opt => opt.UseSqlServer("name=DefaultConnection"));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BlockchainDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<BlockchainDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+});
 
 var app = builder.Build();
 
@@ -40,6 +48,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
