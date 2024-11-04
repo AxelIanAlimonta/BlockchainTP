@@ -2,26 +2,30 @@
     ViewBag.Title = "Página Principal";
 }
 
-<h2>Bienvenido al Sistema de Votación</h2>
+<h2 class="text-center">Bienvenido al Sistema de Votación</h2>
 
 @if (ViewBag.userWithWallet.WalletAddress != null)
 {
-    <div class="text-center">
+    <div class="text-center mt-4">
         <a href="@Url.Action("ListaDeCandidatos")" class="btn btn-primary btn-lg">Ver Candidatos</a>
-        <a href="@Url.Action("ElegirCandidato")" class="btn btn-success btn-lg">Votar</a>
-        <a href="@Url.Action("Transaccion")" class="btn btn-success btn-lg">Ver transacciones</a>
+        <a href="@Url.Action("ElegirCandidato")" class="btn btn-primary btn-lg">Votar</a>
+        <a href="@Url.Action("Transaccion")" class="btn btn-primary btn-lg">Ver transacciones</a>
     </div>
 }
 else
 {
-    <div class="text-center">
-        <h3>No tienes una wallet asociada. Por favor, ingresa tu dirección de wallet:</h3>
-        <form asp-action="AddWallet" method="post">
-            <div class="form-group">
-                <label for="walletAddress">Dirección de Wallet</label>
-                <input type="text" class="form-control" id="walletAddress" name="walletAddress" required />
+    <div class="d-flex justify-content-center align-items-center mt-5">
+        <div class="card shadow-sm" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-4">No tienes una wallet asociada. Por favor, ingresa tu dirección de wallet:</h5>
+                <form asp-action="AddWallet" method="post">
+                    <div class="form-group">
+                        <label for="walletAddress">Dirección de Wallet</label>
+                        <input type="text" class="form-control" id="walletAddress" name="walletAddress" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-4">Guardar Wallet</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Wallet</button>
-        </form>
+        </div>
     </div>
 }

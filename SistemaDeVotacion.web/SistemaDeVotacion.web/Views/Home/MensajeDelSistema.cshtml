@@ -2,9 +2,7 @@
     ViewData["Title"] = "Mensaje del Sistema";
 }
 
-<h2>Mensaje del Sistema</h2>
-
-<p>@ViewBag.Mensaje</p>
+<h2 class="text-danger text-center">@ViewBag.Mensaje</h2>
 
 <div class="text-center mt-4">
     <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Volver al Home</a>

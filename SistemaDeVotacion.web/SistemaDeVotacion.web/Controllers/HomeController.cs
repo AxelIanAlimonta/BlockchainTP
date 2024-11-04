@@ -113,7 +113,7 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            return RedirectToAction("MensajeDelSistema", new { msj = $"Ocurri� un error al registrar el voto: {ex.Message}" });
+            return RedirectToAction("MensajeDelSistema", new { msj = $"Usted ya voto" });
         }
     }
 
