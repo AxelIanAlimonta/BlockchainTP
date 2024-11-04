@@ -5,22 +5,22 @@
 }
 
 <h2>Lista de Candidatos</h2>
-
-<div class="row">
-    @foreach (var candidate in Model)
-    {
-        <div class="col-md-4 text-center">
-            <div class="card mb-4">
-                <img src="@Url.Content("~/images/" + candidate.Id + ".jpg")" class="card-img-top w-75 d-block mx-auto" alt="@candidate.NombreCandidato" />
-                <div class="card-body">
-                    <h5 class="card-title">@candidate.NombreCandidato</h5>
-                    <p class="card-text">Cantidad de Votos: @candidate.CantidadDeVotos</p>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+        @foreach (var candidate in Model)
+        {
+            <div class="col-md-4 text-center">
+                <div class="card mb-4">
+                    <img src="@Url.Content("~/images/" + candidate.Id + ".jpg")" class="card-img-top w-75 d-block mx-auto" alt="@candidate.NombreCandidato" />
+                    <div class="card-body">
+                        <h5 class="card-title">@candidate.NombreCandidato</h5>
+                        <p class="card-text">Cantidad de Votos: @candidate.CantidadDeVotos</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
-
 <div class="text-center mt-4">
     <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Volver al Home</a>
 </div>

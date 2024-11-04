@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\talkt\\dev\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {}
+    "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\talkt\\dev\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {
+    "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\talkt\\dev\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
         "projectName": "SistemaDeVotacion.Domain",
-        "projectPath": "C:\\Users\\talkt\\dev\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
-        "packagesPath": "C:\\Users\\talkt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\talkt\\dev\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\obj\\",
+        "projectPath": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
+        "packagesPath": "C:\\Users\\guerr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\talkt\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\guerr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

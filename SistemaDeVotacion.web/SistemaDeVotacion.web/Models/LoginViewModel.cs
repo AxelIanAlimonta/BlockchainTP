@@ -4,11 +4,11 @@ namespace SistemaDeVotacion.web.Models;
 
 public class LoginViewModel
 {
-    [Required]
+    [Required(ErrorMessage = "Este campo es requerido")]
     [EmailAddress]
     public string Email { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Este campo es requerido")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
 }

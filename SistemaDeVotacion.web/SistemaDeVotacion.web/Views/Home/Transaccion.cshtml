@@ -8,13 +8,17 @@
     {
         var txType = tx.GetType();
         <div class="card mt-4">
-            <h4 class="card-header">Transaccion @count</h4>
+            <h4 class="card-header bg-primary text-light">Transaccion @count</h4>
             <div class="card-body">
-                <h5 class="card-title">TxHash: @tx.TxHash</h5>
-                <h5 class="card-title">From: @tx.From</h5>
-                <h5 class="card-text">To: @tx.To</h5>
+                <h5 class="card-title"><strong class="text-danger">TxHash:</strong> @tx.TxHash</h5>
+                <h5 class="card-title"><strong class="text-danger">From:</strong> @tx.From</h5>
+                <h5 class="card-text"><strong class="text-danger">To:</strong> @tx.To</h5>
             </div>
         </div>
         count++;
     }
 </ul>
+
+<div class="text-center" style="margin-top: 20px;">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Volver al Inicio</a>
+</div>
