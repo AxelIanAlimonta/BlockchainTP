@@ -14,6 +14,7 @@ contract VotingSystem {
 
     mapping(address => Voter) public voters;
     Candidate[] public candidates;
+    address[] public voterAddresses;
 
     // Constructor que inicializa los candidatos
     constructor() {
@@ -27,9 +28,14 @@ contract VotingSystem {
         require(!voters[msg.sender].hasVoted, "Ya has votado");
         require(candidateId < candidates.length, "Candidato invalido");
 
-        voters[msg.sender].hasVoted = true;
-        voters[msg.sender].candidateVoted = candidateId;
+        voters[msg.sender] = Voter({
+            hasVoted: true,
+            candidateVoted: candidateId
+        });
         candidates[candidateId].voteCount += 1;
+        
+        // Almacena la dirección del votante si es su primer voto
+        voterAddresses.push(msg.sender);
     }
 
     function getCandidateVoteCount(uint256 candidateId) public view returns (uint256) {
@@ -40,5 +46,17 @@ contract VotingSystem {
     function getCandidateName(uint256 candidateId) public view returns (string memory) {
         require(candidateId < candidates.length, "Candidato invalido");
         return candidates[candidateId].name;
+    }
+
+    function getAllVoterAddresses() public view returns (address[] memory) {
+        return voterAddresses;
+    }
+
+    function hasVoterVoted(address voterAddress) public view returns (bool) {
+    return voters[voterAddress].hasVoted; 
+    }
+
+    function getVoterCandidate(address voterAddress) public view returns (uint256) {
+    return voters[voterAddress].candidateVoted;
     }
 }

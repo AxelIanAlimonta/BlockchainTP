@@ -13,3 +13,18 @@ C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\o
 C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\ref\SistemaDeVotacion.Domain.dll
 C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.runtimeconfig.json
 C:\Users\talkt\dev\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.genruntimeconfig.cache
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.deps.json
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.runtimeconfig.json
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.dll
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\bin\Debug\net8.0\SistemaDeVotacion.Domain.pdb
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.csproj.AssemblyReference.cache
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.AssemblyInfoInputs.cache
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.AssemblyInfo.cs
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.csproj.CoreCompileInputs.cache
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.sourcelink.json
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.dll
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\refint\SistemaDeVotacion.Domain.dll
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.pdb
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\SistemaDeVotacion.Domain.genruntimeconfig.cache
+D:\Leo\Unlam\Programacion web 3\PROYECTO BLOCKCHAIN\BlockchainTP\SistemaDeVotacion.web\SistemaDeVotacion.Domain\obj\Debug\net8.0\ref\SistemaDeVotacion.Domain.dll

@@ -2,6 +2,9 @@
 using Nethereum.Web3.Accounts;
 using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;
+using Org.BouncyCastle.Asn1.X9;
+using SistemaDeVotacion.BlockchainServicio;
+using System.Numerics;
 
 public class VotingService
 {
@@ -41,6 +44,26 @@ public class VotingService
           ""internalType"": ""uint256"",
           ""name"": ""voteCount"",
           ""type"": ""uint256""
+        }
+      ],
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
+    },
+    {
+      ""inputs"": [
+        {
+          ""internalType"": ""uint256"",
+          ""name"": """",
+          ""type"": ""uint256""
+        }
+      ],
+      ""name"": ""voterAddresses"",
+      ""outputs"": [
+        {
+          ""internalType"": ""address"",
+          ""name"": """",
+          ""type"": ""address""
         }
       ],
       ""stateMutability"": ""view"",
@@ -119,6 +142,60 @@ public class VotingService
           ""internalType"": ""string"",
           ""name"": """",
           ""type"": ""string""
+        }
+      ],
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
+    },
+    {
+      ""inputs"": [],
+      ""name"": ""getAllVoterAddresses"",
+      ""outputs"": [
+        {
+          ""internalType"": ""address[]"",
+          ""name"": """",
+          ""type"": ""address[]""
+        }
+      ],
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
+    },
+    {
+      ""inputs"": [
+        {
+          ""internalType"": ""address"",
+          ""name"": ""voterAddress"",
+          ""type"": ""address""
+        }
+      ],
+      ""name"": ""hasVoterVoted"",
+      ""outputs"": [
+        {
+          ""internalType"": ""bool"",
+          ""name"": """",
+          ""type"": ""bool""
+        }
+      ],
+      ""stateMutability"": ""view"",
+      ""type"": ""function"",
+      ""constant"": true
+    },
+    {
+      ""inputs"": [
+        {
+          ""internalType"": ""address"",
+          ""name"": ""voterAddress"",
+          ""type"": ""address""
+        }
+      ],
+      ""name"": ""getVoterCandidate"",
+      ""outputs"": [
+        {
+          ""internalType"": ""uint256"",
+          ""name"": """",
+          ""type"": ""uint256""
         }
       ],
       ""stateMutability"": ""view"",
@@ -205,7 +282,35 @@ public class VotingService
 
             blocks.Add(blockInfo);
         }
-
         return blocks;
+    }
+
+    public async Task<List<VoterInfo>> GetListVotantes()
+    {
+        
+        var contract = _web3.Eth.GetContract(abi, _contractAddress);
+        
+        var getVoterAddressesFunction = contract.GetFunction("getAllVoterAddresses");
+
+        var voterAddresses = await getVoterAddressesFunction.CallAsync<List<string>>();
+
+        var voterInfoList = new List<VoterInfo>();
+
+        // Iterar sobre cada dirección y obtener los datos del votante
+        foreach (var address in voterAddresses)
+        {
+            
+            var getVoterCandidateFunction = contract.GetFunction("getVoterCandidate");
+            var candidateVoted = await getVoterCandidateFunction.CallAsync<BigInteger>(address);
+
+            
+            voterInfoList.Add(new VoterInfo
+            {
+                AddressVoter = address,
+                CandidateVoted = candidateVoted
+            });
+        }
+
+        return voterInfoList;
     }
 }
