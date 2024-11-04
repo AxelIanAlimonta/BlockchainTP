@@ -13,9 +13,9 @@ DotNetEnv.Env.Load();
 // Añadir variables de entorno a la configuración
 builder.Configuration.AddEnvironmentVariables();
 
-// Configurar VotingService para la inyección de dependencias
 builder.Services.AddScoped<VotingService>();
 builder.Services.AddScoped<UserService>();
+
 
 builder.Services.AddDbContext<BlockchainDbContext>(opt => opt.UseSqlServer("name=DefaultConnection"));
 

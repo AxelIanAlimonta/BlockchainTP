@@ -101,8 +101,6 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Votar(uint candidateId)
     {
-        
-
         try
         {
             var userWithWallet = await _userService.GetUserWithWalletAsync(User);
@@ -169,4 +167,28 @@ public class HomeController : Controller
         }
         return View(ListT);
     }
+
+    public async Task<IActionResult> ListaDeVotantes()
+    {
+        var votantes = await _votingService.GetListVotantes();
+        
+        var votantesViewModel = new List<VoterViewModel>();
+
+        foreach (var votante in votantes)
+        {
+            
+            var candidateName = await _votingService.GetCandidateNameAsync((uint)votante.CandidateVoted);
+
+            
+            votantesViewModel.Add(new VoterViewModel
+            {
+                AddressVoter = votante.AddressVoter,
+                CandidateVoted = votante.CandidateVoted,
+                CandidateName = candidateName 
+            });
+        }
+
+        return View(votantesViewModel);
+    }
+
 }
