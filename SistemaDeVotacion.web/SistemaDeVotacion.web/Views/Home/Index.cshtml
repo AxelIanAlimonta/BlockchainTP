@@ -2,15 +2,16 @@
     ViewBag.Title = "Página Principal";
 }
 
-<h2>Bienvenido al Sistema de Votación</h2>
+<h2 class="text-center">Bienvenido al Sistema de Votación</h2>
 
 @if (ViewBag.userWithWallet.WalletAddress != null)
 {
-    <div class="text-center">
+    <div class="text-center mt-4">
         <a href="@Url.Action("ListaDeCandidatos")" class="btn btn-primary btn-lg">Ver Candidatos</a>
-        <a href="@Url.Action("ElegirCandidato")" class="btn btn-success btn-lg">Votar</a>
-        <a href="@Url.Action("Transaccion")" class="btn btn-success btn-lg">Ver transacciones</a>
+        <a href="@Url.Action("ElegirCandidato")" class="btn btn-primary btn-lg">Votar</a>
+        <a href="@Url.Action("Transaccion")" class="btn btn-primary btn-lg">Ver transacciones</a>
         <a href="@Url.Action("ListaDeVotantes")" class="btn btn-success btn-lg">Ver Votantes</a>
+
     </div>
 }
 else
