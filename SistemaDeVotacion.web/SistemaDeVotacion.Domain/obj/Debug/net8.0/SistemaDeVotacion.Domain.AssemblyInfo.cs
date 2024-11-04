@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaDeVotacion.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+549cf9176eddc37c7a693bb7a08a7607771c5c62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b24d7ab3065013f0c54468cc221e5fe16073ce54")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaDeVotacion.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaDeVotacion.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

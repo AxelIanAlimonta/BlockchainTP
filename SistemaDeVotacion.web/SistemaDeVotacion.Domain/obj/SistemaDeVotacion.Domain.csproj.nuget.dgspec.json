@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {}
+    "D:\\Leo\\Unlam\\Programacion web 3\\PROYECTO BLOCKCHAIN\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {
+    "D:\\Leo\\Unlam\\Programacion web 3\\PROYECTO BLOCKCHAIN\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
+        "projectUniqueName": "D:\\Leo\\Unlam\\Programacion web 3\\PROYECTO BLOCKCHAIN\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
         "projectName": "SistemaDeVotacion.Domain",
-        "projectPath": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
-        "packagesPath": "C:\\Users\\guerr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\guerr\\Source\\Repos\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\obj\\",
+        "projectPath": "D:\\Leo\\Unlam\\Programacion web 3\\PROYECTO BLOCKCHAIN\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\SistemaDeVotacion.Domain.csproj",
+        "packagesPath": "C:\\Users\\vilte\\.nuget\\packages\\",
+        "outputPath": "D:\\Leo\\Unlam\\Programacion web 3\\PROYECTO BLOCKCHAIN\\BlockchainTP\\SistemaDeVotacion.web\\SistemaDeVotacion.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\guerr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vilte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

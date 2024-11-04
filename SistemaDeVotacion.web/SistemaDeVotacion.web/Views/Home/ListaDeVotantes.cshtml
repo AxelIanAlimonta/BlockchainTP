@@ -7,7 +7,7 @@
         <tr>
             <th scope="col">Dirección del Votante</th>
             <th scope="col">Nombre del Candidato</th>
-            <th scope="col">ID del Candidato Votado</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,11 @@
             <tr>
                 <td>@voter.AddressVoter</td>
                 <td>@voter.CandidateName</td>
-                <td>@voter.CandidateVoted</td>
             </tr>
         }
     </tbody>
 </table>
+
+<div class="text-center" style="margin-top: 20px;">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Volver al Inicio</a>
+</div>
