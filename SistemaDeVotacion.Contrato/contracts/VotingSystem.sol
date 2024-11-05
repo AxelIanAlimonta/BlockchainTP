@@ -19,9 +19,9 @@ contract VotingSystem {
     // Constructor que inicializa los candidatos
     constructor() {
         // Candidatos precargados
-        candidates.push(Candidate("Juan Ponce", 0));
-        candidates.push(Candidate("Laura Silva", 0));
-        candidates.push(Candidate("Pablo Morales", 0));
+        candidates.push(Candidate("Nahuel Rapetti", 0));
+        candidates.push(Candidate("Pablo Sanchez", 0));
+        candidates.push(Candidate("Mariano Juiz", 0));
     }
 
     function vote(uint256 candidateId) public {
